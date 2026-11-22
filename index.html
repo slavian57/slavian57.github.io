@@ -31,6 +31,7 @@
     }
   </script>
   <script src="./diagram.js" defer></script>
+  <script src="./toolkit.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -253,6 +254,127 @@
           </tr>
         </tbody>
       </table>
+    </section>
+
+    <section class="section toolkit" id="tools" aria-labelledby="tools-title">
+      <div class="toolkit-intro">
+        <h2 id="tools-title">Инструменты управления</h2>
+        <p>Практики для планирования, обратной связи и работы с командой.</p>
+        <p id="tools-hint" class="toolkit-hint"><span class="toolkit-drag-hint">Зажмите левую кнопку мыши и потяните, чтобы повернуть сферу. </span><span class="toolkit-hover-hint">Наведите курсор на термин, чтобы прочитать описание. </span>Ссылка откроет поиск Google в новой вкладке.</p>
+        <div class="toolkit-controls" hidden>
+          <button class="toolkit-control" type="button" data-toolkit-motion aria-controls="tools-stage">Пауза</button>
+          <button class="toolkit-control" type="button" data-toolkit-view aria-controls="tools-stage">Список</button>
+        </div>
+      </div>
+
+      <div class="toolkit-stage" id="tools-stage" aria-describedby="tools-hint">
+        <svg class="toolkit-mesh" aria-hidden="true" focusable="false">
+          <circle class="toolkit-rim"/>
+          <path class="toolkit-threads toolkit-threads-back"/>
+          <path class="toolkit-threads toolkit-threads-front"/>
+          <path class="toolkit-knots"/>
+          <path class="toolkit-threads toolkit-threads-active"/>
+        </svg>
+        <ul class="toolkit-tags" role="list">
+          <li>
+            <a href="https://www.google.com/search?q=RACI+matrix" target="_blank" rel="noopener noreferrer" aria-describedby="tool-raci">RACI</a>
+            <span id="tool-raci" hidden>Матрица ролей по задачам. Показывает, кто выполняет работу, кто отвечает за результат, с кем советуются и кого держат в курсе.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=SMART+goals" target="_blank" rel="noopener noreferrer" aria-describedby="tool-smart">SMART</a>
+            <span id="tool-smart" hidden>Критерии постановки цели. Она должна быть конкретной, измеримой, достижимой, значимой и ограниченной по времени.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=SBI+feedback+model" target="_blank" rel="noopener noreferrer" aria-describedby="tool-sbi">SBI</a>
+            <span id="tool-sbi" hidden>Формат обратной связи. Опишите ситуацию, назовите поступок, который наблюдали, и объясните, к чему он привёл.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Kanban" target="_blank" rel="noopener noreferrer" aria-describedby="tool-kanban">Kanban</a>
+            <span id="tool-kanban" hidden>Способ управлять потоком работы. Команда показывает задачи на доске и ограничивает число тех, что выполняются одновременно.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Scrum" target="_blank" rel="noopener noreferrer" aria-describedby="tool-scrum">Scrum</a>
+            <span id="tool-scrum" hidden>Фреймворк для работы над сложным продуктом. Команда работает короткими циклами, проверяет результат и корректирует планы на следующий спринт.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Agile+methodology" target="_blank" rel="noopener noreferrer" aria-describedby="tool-agile">Agile</a>
+            <span id="tool-agile" hidden>Подход к разработке, при котором работу выполняют небольшими шагами и меняют планы по мере получения обратной связи.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Eisenhower+Matrix" target="_blank" rel="noopener noreferrer" aria-describedby="tool-eisenhower">Eisenhower Matrix</a>
+            <span id="tool-eisenhower" hidden>Матрица срочности и важности. По ней решают, что сделать сразу, что запланировать, что поручить другим и от чего отказаться.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=GROW+coaching+model" target="_blank" rel="noopener noreferrer" aria-describedby="tool-grow">GROW</a>
+            <span id="tool-grow" hidden>Схема разговора о развитии. Сформулируйте цель, разберите текущую ситуацию, обсудите варианты и договоритесь о следующем шаге.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=ADKAR+change+management" target="_blank" rel="noopener noreferrer" aria-describedby="tool-adkar">ADKAR</a>
+            <span id="tool-adkar" hidden>Модель помогает понять, почему изменения буксуют. Человеку нужно понять их смысл, захотеть участвовать, узнать, что делать, попробовать новый подход на практике и закрепить его.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=SCARF+model" target="_blank" rel="noopener noreferrer" aria-describedby="tool-scarf">SCARF</a>
+            <span id="tool-scarf" hidden>Модель описывает пять факторов, которые влияют на реакцию людей в рабочих ситуациях. Это статус, предсказуемость, самостоятельность, чувство принадлежности и справедливость.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=9-box+Matrix+talent+management" target="_blank" rel="noopener noreferrer" aria-describedby="tool-9box">9-box Matrix</a>
+            <span id="tool-9box" hidden>Матрица из девяти ячеек. Руководители сопоставляют результаты работы и потенциал сотрудника, чтобы обсудить его дальнейшее развитие.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=80%2F20+Pareto+principle" target="_blank" rel="noopener noreferrer" aria-describedby="tool-pareto">80/20 Pareto</a>
+            <span id="tool-pareto" hidden>Принцип приоритизации. Ищите небольшую долю причин или действий, на которую приходится большая часть результата. Пропорция 80/20 приблизительна.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=PDCA+cycle" target="_blank" rel="noopener noreferrer" aria-describedby="tool-pdca">PDCA</a>
+            <span id="tool-pdca" hidden>Цикл улучшений. Запланируйте изменение, попробуйте его, проверьте результат и решите, что закрепить или изменить в следующем цикле.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=5+Whys+root+cause+analysis" target="_blank" rel="noopener noreferrer" aria-describedby="tool-5why">5 Why</a>
+            <span id="tool-5why" hidden>Метод поиска причины сбоя. На каждый ответ снова задают вопрос «почему?», пока не найдут причину, которую можно проверить.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=One2one+one-on-one+meetings+management" target="_blank" rel="noopener noreferrer" aria-describedby="tool-one2one">One2one</a>
+            <span id="tool-one2one" hidden>Регулярная встреча сотрудника с руководителем. На ней обсуждают рабочие трудности, обмениваются обратной связью и договариваются о развитии.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Root+Cause+Analysis" target="_blank" rel="noopener noreferrer" aria-describedby="tool-rca">Root Cause Analysis</a>
+            <span id="tool-rca" hidden>Анализ первопричин. Соберите факты о сбое, выясните, что к нему привело, и определите, что поможет предотвратить повторение.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Start+Stop+Continue+retrospective" target="_blank" rel="noopener noreferrer" aria-describedby="tool-ssc">Start Stop Continue</a>
+            <span id="tool-ssc" hidden>Формат ретроспективы. Команда решает, что начать делать, от каких привычек отказаться и какие практики сохранить.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Planning+Poker" target="_blank" rel="noopener noreferrer" aria-describedby="tool-planning">Planning Poker</a>
+            <span id="tool-planning" hidden>Команда независимо оценивает объём работы по задаче и одновременно показывает карты. Если оценки расходятся, участники обсуждают свои предположения.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Delegation+Poker" target="_blank" rel="noopener noreferrer" aria-describedby="tool-delegation">Delegation Poker</a>
+            <span id="tool-delegation" hidden>Команда и руководитель выбирают на картах степень самостоятельности для конкретного решения. Затем сравнивают оценки и договариваются, кто принимает решение.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=After+Action+Review" target="_blank" rel="noopener noreferrer" aria-describedby="tool-aar">After Action Review</a>
+            <span id="tool-aar" hidden>Разбор после проекта или события. Сравните, что планировали и что получилось, выясните причины расхождений и решите, что сделать иначе в следующий раз.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=70-20-10+model+learning" target="_blank" rel="noopener noreferrer" aria-describedby="tool-702010">70-20-10 model</a>
+            <span id="tool-702010" hidden>Ориентир для плана развития. Основной опыт дают реальные задачи (70%), остальное приходится на общение с коллегами и наставниками (20%) и на курсы и тренинги (10%).</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Team+Health+Check" target="_blank" rel="noopener noreferrer" aria-describedby="tool-health">Team Health Check</a>
+            <span id="tool-health" hidden>Команда оценивает, хватает ли ей поддержки и насколько легко выпускать изменения. По итогам участники выбирают, что улучшить в своей работе.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Belbin+Team+Roles" target="_blank" rel="noopener noreferrer" aria-describedby="tool-belbin">Belbin Team Roles</a>
+            <span id="tool-belbin" hidden>Девять ролей, которые люди могут брать на себя в команде. Одни предлагают идеи, другие проверяют их или доводят работу до конца.</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/search?q=Kotter+model+change+management" target="_blank" rel="noopener noreferrer" aria-describedby="tool-kotter">Kotter model</a>
+            <span id="tool-kotter" hidden>Восемь шагов для изменений в организации. Сначала объясняют, почему нужно действовать, и собирают сторонников, затем добиваются первых результатов и закрепляют новые практики.</span>
+          </li>
+        </ul>
+        <div class="toolkit-tooltip" aria-hidden="true" hidden></div>
+      </div>
     </section>
 
     <section class="section contact" id="contact" aria-labelledby="contact-title">

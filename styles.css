@@ -425,6 +425,132 @@ h1, h2, h3 { line-height: 1.03; }
   .career-table tbody tr:hover > th { color: var(--accent); }
 }
 
+.toolkit {
+  display: grid;
+  grid-template-columns: minmax(13rem, 1fr) minmax(0, 2fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 4rem);
+}
+
+.toolkit-intro h2 { margin-bottom: 1rem; text-wrap: initial; }
+.toolkit-intro p { max-width: 32ch; color: var(--muted); }
+.toolkit-hint { margin-top: .65rem; font-size: .88rem; }
+.toolkit-drag-hint, .toolkit-hover-hint { display: none; }
+@media (any-pointer: fine) {
+  .toolkit[data-view="sphere"] .toolkit-drag-hint { display: inline; }
+}
+@media (any-hover: hover) {
+  .toolkit[data-view] .toolkit-hover-hint { display: inline; }
+}
+.toolkit-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+.toolkit-controls[hidden] { display: none; }
+
+.toolkit-control {
+  min-height: 2.6rem;
+  padding: .45rem .75rem;
+  border: 1px solid #747877;
+  border-radius: 0;
+  background: var(--background);
+  color: var(--text);
+  font: inherit;
+  font-size: .86rem;
+  cursor: pointer;
+}
+
+.toolkit-control:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.toolkit-control:disabled { opacity: .55; cursor: default; }
+.toolkit-control:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.toolkit-stage { position: relative; border: 1px solid var(--line); background: var(--panel); }
+.toolkit-mesh { display: none; }
+
+.toolkit-tooltip {
+  position: fixed;
+  z-index: 5;
+  width: min(19rem, calc(100% - 1rem));
+  padding: .65rem .8rem;
+  border: 1px solid #916a29;
+  border-radius: 3px;
+  background: #312b20;
+  box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .35);
+  color: #f3e8d3;
+  font-size: .875rem;
+  line-height: 1.45;
+  cursor: default;
+}
+
+.toolkit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: .5rem;
+  margin: 0;
+  padding: clamp(.75rem, 2.4vw, 1.65rem);
+  list-style: none;
+}
+
+.toolkit-tags a {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  padding: .25rem .55rem;
+  border: 1px solid #656661;
+  border-radius: 2px;
+  background: var(--background);
+  color: var(--text);
+  font-size: clamp(.73rem, 1.25vw, .84rem);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.toolkit-stage:not([data-dragging]) .toolkit-tags a:hover,
+.toolkit-tags a:focus-visible,
+.toolkit[data-view="sphere"] .toolkit-tags a[data-highlight] {
+  border-color: var(--accent);
+  background: #322a1a;
+  color: #ffd16b;
+}
+
+.toolkit[data-view="sphere"] .toolkit-stage {
+  height: clamp(20rem, 48vw, 32rem);
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  background:
+    radial-gradient(ellipse at 59% 49%, rgb(235 160 0 / .09), transparent 62%),
+    repeating-linear-gradient(0deg, transparent 0 23px, rgb(215 220 219 / .038) 23px 24px),
+    repeating-linear-gradient(90deg, transparent 0 23px, rgb(215 220 219 / .038) 23px 24px),
+    #272826;
+}
+
+.toolkit[data-view="sphere"] .toolkit-tags a { cursor: pointer; }
+.toolkit[data-view="sphere"] .toolkit-stage[data-dragging],
+.toolkit[data-view="sphere"] .toolkit-stage[data-dragging] a { cursor: grabbing; }
+
+.toolkit[data-view="sphere"] .toolkit-mesh {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.toolkit-rim { fill: none; stroke: rgb(215 220 219 / .19); stroke-width: .8; stroke-dasharray: 2 5; }
+.toolkit-threads, .toolkit-knots { fill: none; stroke-linecap: round; }
+.toolkit-threads-back { stroke: rgb(215 220 219 / .22); stroke-width: .65; }
+.toolkit-threads-front { stroke: rgb(235 160 0 / .46); stroke-width: .85; }
+.toolkit-knots { stroke: rgb(235 192 100 / .72); stroke-width: 3.2; }
+.toolkit-threads-active { stroke: #f6bb45; stroke-width: 1.4; }
+
+.toolkit[data-view="sphere"] .toolkit-tags { position: absolute; inset: 0; display: block; padding: 0; }
+.toolkit[data-view="sphere"] .toolkit-tags li { position: absolute; top: 0; left: 0; transform: var(--tag-position); }
+.toolkit[data-view="sphere"] .toolkit-tags li[data-visible] { transition: opacity .18s ease-out; }
+.toolkit[data-view="sphere"] .toolkit-tags li:not([data-visible]) { opacity: 0; pointer-events: none; }
+.toolkit[data-view="sphere"] .toolkit-tags li:has(:focus-visible) { z-index: 4; transition: none; }
+
 .contact .section-intro { align-items: center; }
 
 .contact-links {
@@ -484,6 +610,8 @@ h1, h2, h3 { line-height: 1.03; }
 }
 
 @media (max-width: 42rem) {
+  .toolkit { grid-template-columns: minmax(0, 1fr); }
+  .toolkit-intro p { max-width: 58ch; }
   .career-table, .career-table tbody { display: block; }
   .career-table thead {
     position: absolute;
@@ -525,6 +653,7 @@ h1, h2, h3 { line-height: 1.03; }
   .diagram-sector, .diagram-nodes circle, .diagram-button span, .diagram-button span::after { transition: none; }
   .diagram-button[data-current] span { transform: none; }
   .system-detail[data-current] { animation: none; }
+  .toolkit[data-view="sphere"] .toolkit-tags li[data-visible] { transition: none; }
   .button, .button svg, .career-table tbody th, .contact-links a, .site-header nav a, .site-footer a { transition: none; }
   .button:hover svg { transform: none; }
 }
