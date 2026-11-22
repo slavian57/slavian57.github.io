@@ -420,9 +420,33 @@ h1, h2, h3 { line-height: 1.03; }
 .career-table tbody td { color: var(--muted); font-size: .92rem; }
 .career-table tbody td:nth-child(2) { font-variant-numeric: tabular-nums; }
 
+.education {
+  display: grid;
+  grid-template-columns: minmax(0, 28%) minmax(0, 1fr);
+  align-items: baseline;
+  row-gap: .65rem;
+  padding-block: clamp(1.15rem, 2.6vw, 1.8rem);
+  border-top: 1px solid var(--line);
+}
+.career .education { padding-block-end: 0; }
+.education-title { font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 700; line-height: 1.2; }
+.education-school { font-size: 1.05rem; font-weight: 650; line-height: 1.4; }
+.education-place { margin-top: .25rem; color: var(--muted); font-size: .92rem; }
+.education-degrees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.25rem;
+  margin: .45rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .92rem;
+}
+.education-degrees time { color: var(--muted); font-variant-numeric: tabular-nums; }
+
 @media (hover: hover) {
-  .career-table tbody th { transition: color .2s ease; }
-  .career-table tbody tr:hover > th { color: var(--accent); }
+  .career-table tbody th, .career .education-title { transition: color .2s ease; }
+  .career-table tbody tr:hover > th,
+  .career .education:hover .education-title { color: var(--accent); }
 }
 
 .toolkit {
@@ -610,7 +634,7 @@ h1, h2, h3 { line-height: 1.03; }
 }
 
 @media (max-width: 42rem) {
-  .toolkit { grid-template-columns: minmax(0, 1fr); }
+  .toolkit, .education { grid-template-columns: minmax(0, 1fr); }
   .toolkit-intro p { max-width: 58ch; }
   .career-table, .career-table tbody { display: block; }
   .career-table thead {
@@ -654,6 +678,7 @@ h1, h2, h3 { line-height: 1.03; }
   .diagram-button[data-current] span { transform: none; }
   .system-detail[data-current] { animation: none; }
   .toolkit[data-view="sphere"] .toolkit-tags li[data-visible] { transition: none; }
-  .button, .button svg, .career-table tbody th, .contact-links a, .site-header nav a, .site-footer a { transition: none; }
+  .button, .button svg, .career-table tbody th, .career .education-title,
+  .contact-links a, .site-header nav a, .site-footer a { transition: none; }
   .button:hover svg { transform: none; }
 }

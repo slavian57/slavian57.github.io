@@ -192,6 +192,10 @@
   .resume-summary, .resume-roles, .resume-job > p, .resume-job ul, .skill-list p { max-width: none; }
   .resume-contact { margin-top: .5rem; padding: 0; border: 0; }
   .resume-section { padding: .8rem 0 0; border: 0 !important; }
+  .education { display: block; padding: .8rem 0 0; border: 0; break-inside: avoid; }
+  .education-title { margin-bottom: .4rem; font-size: 15pt; }
+  .education-school { font-size: 12pt; }
+  .education-place, .education-degrees { font-size: inherit; }
   .resume-skills { break-before: page; }
   .resume-section h2 { margin-bottom: .4rem; font-size: 15pt; }
   .resume-section h2, .resume-section h3, .job-meta { break-after: avoid; }
