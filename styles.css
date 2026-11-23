@@ -240,10 +240,7 @@ h1, h2, h3 { line-height: 1.03; }
 .diagram-button[data-current] span { color: var(--accent); transform: translateY(-3px); }
 .diagram-button[data-current] span::after { transform: scaleX(1); }
 
-.diagram-motion {
-  position: absolute;
-  top: 8%;
-  right: 8%;
+.motion-toggle {
   display: grid;
   width: 44px;
   height: 44px;
@@ -255,10 +252,12 @@ h1, h2, h3 { line-height: 1.03; }
   cursor: pointer;
 }
 
-.diagram-motion:hover { color: var(--accent); }
-.diagram-motion:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; }
-.diagram-motion svg { stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.diagram-motion[data-paused] .pause-icon, .diagram-motion:not([data-paused]) .play-icon { display: none; }
+.motion-toggle:hover { color: var(--accent); }
+.motion-toggle:focus-visible { outline: 1px solid var(--accent); outline-offset: 1px; }
+.motion-toggle svg { stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.motion-toggle[hidden], .motion-toggle[data-paused] .pause-icon,
+.motion-toggle:not([data-paused]) .play-icon { display: none; }
+.diagram-motion { position: absolute; top: 8%; right: 8%; }
 
 .system-preview {
   display: grid;
@@ -451,11 +450,13 @@ h1, h2, h3 { line-height: 1.03; }
 
 .toolkit {
   display: grid;
+  grid-template-areas: "intro graphic";
   grid-template-columns: minmax(13rem, 1fr) minmax(0, 2fr);
   align-items: center;
   gap: clamp(1.25rem, 4vw, 4rem);
 }
 
+.toolkit-intro { grid-area: intro; }
 .toolkit-intro h2 { margin-bottom: 1rem; text-wrap: initial; }
 .toolkit-intro p { max-width: 32ch; color: var(--muted); }
 .toolkit-hint { margin-top: .65rem; font-size: .88rem; }
@@ -481,11 +482,18 @@ h1, h2, h3 { line-height: 1.03; }
   cursor: pointer;
 }
 
-.toolkit-control:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-.toolkit-control:disabled { opacity: .55; cursor: default; }
+.toolkit-control:hover { border-color: var(--accent); color: var(--accent); }
 .toolkit-control:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-.toolkit-stage { position: relative; border: 1px solid var(--line); background: var(--panel); }
+.toolkit-stage { grid-area: graphic; position: relative; border: 1px solid var(--line); background: var(--panel); }
+.toolkit-motion {
+  grid-area: graphic;
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  justify-self: end;
+  margin: .5rem;
+}
 .toolkit-mesh { display: none; }
 
 .toolkit-tooltip {
@@ -538,6 +546,7 @@ h1, h2, h3 { line-height: 1.03; }
 }
 
 .toolkit[data-view="sphere"] .toolkit-stage {
+  align-self: start;
   height: clamp(20rem, 48vw, 32rem);
   overflow: hidden;
   cursor: grab;
@@ -635,6 +644,7 @@ h1, h2, h3 { line-height: 1.03; }
 
 @media (max-width: 42rem) {
   .toolkit, .education { grid-template-columns: minmax(0, 1fr); }
+  .toolkit { grid-template-areas: "intro" "graphic"; }
   .toolkit-intro p { max-width: 58ch; }
   .career-table, .career-table tbody { display: block; }
   .career-table thead {

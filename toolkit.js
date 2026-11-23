@@ -179,8 +179,11 @@
   function updateControls() {
     const sphere = toolkit.dataset.view === 'sphere';
     viewButton.textContent = sphere ? 'Список' : 'Сфера';
-    motionButton.textContent = paused ? 'Вращать' : 'Пауза';
-    motionButton.disabled = !sphere;
+    const motionLabel = paused ? 'Включить вращение сферы' : 'Приостановить вращение сферы';
+    motionButton.setAttribute('aria-label', motionLabel);
+    motionButton.title = motionLabel;
+    motionButton.toggleAttribute('data-paused', paused);
+    motionButton.hidden = !sphere;
   }
 
   stage.addEventListener('pointerenter', event => {

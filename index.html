@@ -136,7 +136,7 @@
           <button class="diagram-button" type="button" data-topic="architecture" aria-controls="diagram-architecture" aria-describedby="diagram-architecture" aria-expanded="false"><span>Архитектура</span></button>
           <button class="diagram-button" type="button" data-topic="delivery" aria-controls="diagram-delivery" aria-describedby="diagram-delivery" aria-expanded="false"><span>Поставка</span></button>
           <button class="diagram-button" type="button" data-topic="team" aria-controls="diagram-team" aria-describedby="diagram-team" aria-expanded="false"><span>Команда</span></button>
-          <button class="diagram-motion" type="button" aria-label="Приостановить анимацию">
+          <button class="motion-toggle diagram-motion" type="button" aria-label="Приостановить анимацию">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path class="pause-icon" d="M9 6v12m6-12v12"/>
               <path class="play-icon" d="m9 6 9 6-9 6Z"/>
@@ -273,11 +273,16 @@
         <p>Практики для планирования, обратной связи и работы с командой, которые я применяю.</p>
         <p id="tools-hint" class="toolkit-hint"><span class="toolkit-drag-hint">Зажмите левую кнопку мыши и потяните, чтобы повернуть сферу. </span><span class="toolkit-hover-hint">Наведите курсор на термин, чтобы прочитать описание. </span>Ссылка откроет поиск Google в новой вкладке.</p>
         <div class="toolkit-controls" hidden>
-          <button class="toolkit-control" type="button" data-toolkit-motion aria-controls="tools-stage">Пауза</button>
           <button class="toolkit-control" type="button" data-toolkit-view aria-controls="tools-stage">Список</button>
         </div>
       </div>
 
+      <button class="motion-toggle toolkit-motion" type="button" data-toolkit-motion aria-controls="tools-stage" aria-label="Приостановить вращение сферы" hidden>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path class="pause-icon" d="M9 6v12m6-12v12"/>
+          <path class="play-icon" d="m9 6 9 6-9 6Z"/>
+        </svg>
+      </button>
       <div class="toolkit-stage" id="tools-stage" aria-describedby="tools-hint">
         <svg class="toolkit-mesh" aria-hidden="true" focusable="false">
           <circle class="toolkit-rim"/>
