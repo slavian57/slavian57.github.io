@@ -8,6 +8,10 @@
   --accent: #333a38;
   --accent-rule: #727a78;
   --control-line: #78817f;
+  --type-subheading: clamp(1.125rem, 1.55vw, 1.25rem);
+  --type-section: clamp(1.85rem, 4vw, 3rem);
+  --type-metric: clamp(1.9rem, 4.5vw, 3.4rem);
+  --type-display: clamp(2.6rem, 8vw, 6rem);
 }
 
 .shell { max-width: 70rem; }
@@ -22,7 +26,7 @@
 
 .resume-intro h1 {
   grid-column: 1 / -1;
-  font-size: clamp(2.6rem, 8vw, 6rem);
+  font-size: var(--type-display);
   font-weight: 825;
   letter-spacing: -.04em;
   line-height: 1;
@@ -31,13 +35,13 @@
 .resume-role {
   margin-bottom: .8rem;
   color: var(--accent);
-  font-size: clamp(1.05rem, 2.15vw, 1.45rem);
+  font-size: var(--type-subheading);
   font-weight: 700;
 }
 
 .resume-summary, .resume-roles { max-width: 60ch; }
-.resume-summary { font-size: clamp(1rem, 1.7vw, 1.2rem); }
-.resume-roles { margin-top: .6rem; color: var(--muted); font-size: .94rem; }
+.resume-summary { font-size: var(--type-lead); }
+.resume-roles { margin-top: .6rem; color: var(--muted); }
 
 .resume-contact {
   align-self: end;
@@ -45,7 +49,7 @@
   border-inline-start: 1px solid var(--line);
 }
 
-.resume-contact address { font-size: .94rem; font-style: normal; overflow-wrap: anywhere; }
+.resume-contact address { font-style: normal; overflow-wrap: anywhere; }
 .resume-contact address a { font-weight: 650; }
 .resume-contact address p + p { margin-top: .25rem; }
 .resume-contact a:hover, .job-meta a:hover { color: var(--accent); }
@@ -63,7 +67,7 @@
   background: transparent;
   color: var(--text);
   cursor: pointer;
-  font: 650 .82rem/1.35 "Golos Text", Arial, sans-serif;
+  font: 650 var(--type-small)/1.35 "Golos Text", Arial, sans-serif;
 }
 
 .resume-button:hover { border-color: var(--text); }
@@ -92,10 +96,10 @@
 }
 
 .resume-metrics > div + div { border-inline-start: 1px solid var(--line); }
-.resume-metrics dt { max-width: 29ch; color: var(--muted); font-size: .88rem; }
+.resume-metrics dt { max-width: 29ch; color: var(--muted); font-size: var(--type-small); }
 .resume-metrics dd {
   color: var(--accent);
-  font-size: clamp(1.9rem, 4.5vw, 3.4rem);
+  font-size: var(--type-metric);
   font-weight: 780;
   font-variant-numeric: tabular-nums;
   letter-spacing: -.04em;
@@ -103,10 +107,10 @@
 }
 
 .resume-section { padding-block: clamp(2.2rem, 5vw, 4.4rem); }
-.resume-section + .resume-section { border-top: 1px solid var(--line); }
+.resume-skills { border-top: 1px solid var(--line); }
 .resume-section h2 {
   margin-bottom: clamp(1.25rem, 3vw, 1.9rem);
-  font-size: clamp(1.85rem, 4vw, 3rem);
+  font-size: var(--type-section);
   font-weight: 760;
   letter-spacing: -.035em;
   line-height: 1.1;
@@ -120,7 +124,7 @@
   margin-bottom: 1rem;
 }
 
-.skill-search label { display: block; margin-bottom: .3rem; font-size: .87rem; font-weight: 650; }
+.skill-search label { display: block; margin-bottom: .3rem; font-size: var(--type-small); font-weight: 650; }
 .skill-search input {
   width: 100%;
   min-height: 2.75rem;
@@ -142,23 +146,22 @@
   padding: .45rem .7rem;
   border: 1px solid var(--control-line);
   cursor: pointer;
-  font-size: .85rem;
+  font-size: var(--type-small);
   font-weight: 600;
 }
 
 .skill-filters label:hover span { border-color: var(--text); }
 .skill-filters input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--background); }
-.filter-status { grid-column: 1 / -1; color: var(--muted); font-size: .83rem; }
+.filter-status { grid-column: 1 / -1; color: var(--muted); font-size: var(--type-small); }
 
 .skill-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(1.6rem, 5vw, 4rem); }
 .skill-list article, .resume-job { padding-block: 1.2rem; border-top: 1px solid var(--line); }
-.skill-list h3, .resume-job h3 { margin-bottom: .4rem; font-size: 1.12rem; font-weight: 700; line-height: 1.25; }
+.skill-list h3, .resume-job h3 { margin-bottom: .4rem; font-size: var(--type-subheading); font-weight: 700; line-height: 1.25; }
 .skill-list p { max-width: 62ch; color: var(--muted); }
 .filter-empty { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1rem; padding-block: 1.2rem; border-top: 1px solid var(--line); }
 
 .resume-jobs { max-width: 55rem; }
-.resume-job h3 { font-size: 1.25rem; }
-.resume-job .job-meta { margin-bottom: .55rem; color: var(--accent); font-size: .94rem; font-weight: 600; }
+.resume-job .job-meta { margin-bottom: .55rem; color: var(--accent); font-size: var(--type-small); font-weight: 600; }
 .resume-job > p { max-width: 74ch; }
 .resume-job ul { max-width: 74ch; margin: 0; padding-inline-start: 1.2rem; }
 .resume-job li + li { margin-top: .45rem; }
@@ -172,9 +175,25 @@
 
 @media (max-width: 36rem) {
   .resume-intro { gap: 1rem; }
-  .resume-metrics dt { font-size: .77rem; }
   .resume-metrics > div { padding-inline: .65rem; }
   .skill-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 28rem) {
+  .resume-metrics { grid-template-columns: 1fr; }
+  .resume-metrics > div {
+    flex-direction: row-reverse;
+    align-items: baseline;
+    gap: .65rem;
+    padding: .55rem .65rem;
+  }
+  .resume-metrics > div + div { border-inline-start: 0; border-top: 1px solid var(--line); }
+  .resume-metrics dd { flex: 0 0 3rem; }
+}
+
+@media (max-width: 21rem) {
+  .site-header nav { flex-wrap: wrap; gap: 0 .3rem; }
+  .site-header .view-switch { padding-inline: .25rem; }
 }
 
 @page { size: A4; margin: 15mm; }
@@ -192,11 +211,10 @@
   .resume-summary, .resume-roles, .resume-job > p, .resume-job ul, .skill-list p { max-width: none; }
   .resume-contact { margin-top: .5rem; padding: 0; border: 0; }
   .resume-section { padding: .8rem 0 0; border: 0 !important; }
-  .education { display: block; padding: .8rem 0 0; border: 0; break-inside: avoid; }
+  .education { display: block; padding: .8rem 0 0; border: 0; break-before: page; break-inside: avoid; }
   .education-title { margin-bottom: .4rem; font-size: 15pt; }
   .education-school { font-size: 12pt; }
   .education-place, .education-degrees { font-size: inherit; }
-  .resume-skills { break-before: page; }
   .resume-section h2 { margin-bottom: .4rem; font-size: 15pt; }
   .resume-section h2, .resume-section h3, .job-meta { break-after: avoid; }
   .skill-list article, .resume-job { padding: .32rem 0; border: 0; break-inside: avoid; }
