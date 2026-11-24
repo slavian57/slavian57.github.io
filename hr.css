@@ -28,7 +28,7 @@
   grid-column: 1 / -1;
   font-size: var(--type-display);
   font-weight: 825;
-  letter-spacing: -.04em;
+  letter-spacing: -.015em;
   line-height: 1;
 }
 
@@ -102,7 +102,7 @@
   font-size: var(--type-metric);
   font-weight: 780;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.04em;
+  letter-spacing: -.015em;
   line-height: 1;
 }
 
@@ -112,7 +112,7 @@
   margin-bottom: clamp(1.25rem, 3vw, 1.9rem);
   font-size: var(--type-section);
   font-weight: 760;
-  letter-spacing: -.035em;
+  letter-spacing: -.015em;
   line-height: 1.1;
 }
 
