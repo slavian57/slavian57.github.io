@@ -311,7 +311,7 @@
   window.addEventListener('resize', positionTooltip);
 
   toolkit.dataset.view = 'sphere';
-  toolkit.querySelector('.toolkit-controls').hidden = false;
+  viewButton.hidden = false;
   updateControls();
   measure();
   new ResizeObserver(measure).observe(stage);

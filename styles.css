@@ -91,7 +91,7 @@ h1, h2, h3 { line-height: 1.03; }
 
 .brand-mark { flex: none; }
 
-.site-header nav { display: flex; gap: clamp(.6rem, 3.2vw, 2.5rem); }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0 clamp(.6rem, 3.2vw, 2.5rem); }
 
 .site-header nav a {
   display: inline-flex;
@@ -470,7 +470,7 @@ h1, h2, h3 { line-height: 1.03; }
   .toolkit[data-view] .toolkit-hover-hint { display: inline; }
 }
 .toolkit-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
-.toolkit-controls[hidden] { display: none; }
+.toolkit-games { display: inline-flex; align-items: center; text-decoration: none; }
 
 .toolkit-control {
   min-height: 2.6rem;
@@ -670,6 +670,7 @@ h1, h2, h3 { line-height: 1.03; }
   }
   .site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .15rem .35rem; padding-block: .5rem .35rem; }
   .brand { grid-column: 1 / -1; gap: .6rem; }
+  .site-header nav { column-gap: .65rem; }
   .view-switch { justify-self: end; padding-inline: .65rem; }
   .hero { padding-top: 2.75rem; }
   .hero-actions { column-gap: .75rem; }
