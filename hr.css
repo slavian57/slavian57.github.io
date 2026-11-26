@@ -28,8 +28,7 @@
   grid-column: 1 / -1;
   font-size: var(--type-display);
   font-weight: 825;
-  letter-spacing: -.015em;
-  line-height: 1;
+  line-height: 1.08;
 }
 
 .resume-role {
@@ -102,8 +101,7 @@
   font-size: var(--type-metric);
   font-weight: 780;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.015em;
-  line-height: 1;
+  line-height: 1.08;
 }
 
 .resume-section { padding-block: clamp(2.2rem, 5vw, 4.4rem); }
@@ -112,7 +110,6 @@
   margin-bottom: clamp(1.25rem, 3vw, 1.9rem);
   font-size: var(--type-section);
   font-weight: 760;
-  letter-spacing: -.015em;
   line-height: 1.1;
 }
 

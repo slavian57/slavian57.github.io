@@ -132,8 +132,7 @@ h1, h2, h3 { line-height: 1.03; }
 .hero h1 {
   font-weight: 850;
   font-size: var(--type-display);
-  letter-spacing: -.015em;
-  line-height: .99;
+  line-height: 1.08;
 }
 
 .hero h1 span { color: var(--accent); }
@@ -322,7 +321,6 @@ h1, h2, h3 { line-height: 1.03; }
 .section h2 {
   font-size: var(--type-section);
   font-weight: 790;
-  letter-spacing: -.015em;
   line-height: 1.18;
   text-wrap: balance;
 }
@@ -383,8 +381,7 @@ h1, h2, h3 { line-height: 1.03; }
   font-size: var(--type-metric);
   font-weight: 760;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.015em;
-  line-height: 1;
+  line-height: 1.08;
   white-space: nowrap;
 }
 
