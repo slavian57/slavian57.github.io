@@ -614,6 +614,106 @@ h1, h2, h3 { line-height: 1.03; }
 .contact-links a > span { min-width: 0; overflow-wrap: anywhere; }
 .contact-links svg { flex: none; color: var(--accent); }
 
+.new-year-postcard {
+  width: min(100%, 32rem);
+  margin: 0 auto clamp(2rem, 5vw, 4rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: .5rem;
+  background: #32201a;
+}
+
+.new-year-scene { position: relative; }
+
+.new-year-scene :is(img, canvas) {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  image-rendering: pixelated;
+}
+
+.new-year-scene [hidden] { display: none; }
+
+.new-year-motion {
+  position: absolute;
+  inset: auto .65rem .65rem auto;
+  background: #232323ed;
+  color: var(--text);
+}
+
+.new-year-code {
+  border-top: 1px solid #424541;
+  background: #1c211f;
+  color: #d7dcdb;
+}
+
+.new-year-code-header {
+  display: flex;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .5rem .75rem;
+  border-bottom: 1px solid #383e39;
+  font-size: .75rem;
+  color: #adb2b1;
+}
+
+.new-year-code-header time {
+  color: #ebae51;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.new-year-code-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline: .35rem;
+  border-bottom: 1px solid #383e39;
+}
+
+.new-year-code-tabs button {
+  min-height: 2.75rem;
+  padding: .45rem .48rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #adb2b1;
+  font: 600 .75rem/1.3 "Golos Text", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.new-year-code-tabs button:hover { color: var(--text); }
+.new-year-code-tabs button[aria-pressed="true"] { border-color: #ebae51; color: #ffd591; }
+.new-year-code :is(button, pre):focus-visible { outline: 1px solid var(--accent); outline-offset: -2px; }
+
+.new-year-code pre {
+  height: 15rem;
+  margin: 0;
+  padding: .6rem 0;
+  overflow: auto;
+  font: .75rem/1.55 Consolas, "Courier New", monospace;
+}
+
+.new-year-code code { display: block; font: inherit; counter-reset: source-line; }
+.new-year-code-line {
+  display: grid;
+  grid-template-columns: 3ch minmax(0, 1fr);
+  gap: .85rem;
+  min-height: 1lh;
+  padding-right: .75rem;
+  counter-increment: source-line;
+}
+.new-year-code-line::before {
+  color: #9ba6a1;
+  text-align: end;
+  content: counter(source-line);
+  user-select: none;
+}
+.new-year-code-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.new-year-keyword { color: #a7cae8; }
+.new-year-literal { color: #e3be85; }
+.new-year-code [aria-current="true"] { background: #383022; color: #ffd591; }
+
 .site-footer {
   display: flex;
   min-height: 5rem;
